@@ -1,10 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({
+  LoginPage({
     super.key,
   });
+
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +20,8 @@ class LoginPage extends StatelessWidget {
             'MOBILE GARAGE',
             style: GoogleFonts.tourney(
               textStyle: const TextStyle(
-                fontSize: 40,
+                letterSpacing: 3,
+                fontSize: 33,
                 color: Colors.amber,
               ),
             ),
@@ -37,10 +42,10 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Jesteś niezalogowany',
+                'Zaloguj się',
                 style: GoogleFonts.tourney(
                   color: Colors.amber,
-                  fontSize: 20,
+                  fontSize: 25,
                   letterSpacing: 3,
                 ),
               ),
@@ -56,8 +61,9 @@ class LoginPage extends StatelessWidget {
                 ),
                 padding: const EdgeInsets.only(left: 10, top: 13, bottom: 13),
                 margin: const EdgeInsets.all(10),
-                child: const TextField(
-                  decoration: InputDecoration.collapsed(
+                child: TextField(
+                  controller: emailController,
+                  decoration: const InputDecoration.collapsed(
                     hintText: 'E-mail',
                   ),
                 ),
@@ -71,12 +77,30 @@ class LoginPage extends StatelessWidget {
                 ),
                 padding: const EdgeInsets.only(left: 10, top: 13, bottom: 13),
                 margin: const EdgeInsets.all(10),
-                child: const TextField(
-                  decoration: InputDecoration.collapsed(
+                child: TextField(
+                  controller: passwordController,
+                  obscureText: true,
+                  decoration: const InputDecoration.collapsed(
                     hintText: 'Password',
                   ),
                 ),
-              )
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  try {
+                    await FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: emailController.text,
+                      password: passwordController.text,
+                    );
+                  } catch (error) {
+                    print(error);
+                  }
+                },
+                child: const Text('Zaloguj się'),
+              ),
             ],
           ),
         ),
