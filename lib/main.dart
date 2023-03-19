@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
 }
 
@@ -50,10 +57,12 @@ class MyApp extends StatelessWidget {
                       Radius.circular(10),
                     ),
                   ),
-                  padding: const EdgeInsets.only(left: 10),
+                  padding: const EdgeInsets.only(left: 10, top: 13, bottom: 13),
                   margin: const EdgeInsets.all(10),
                   child: const TextField(
-                    decoration: InputDecoration(hintText: 'E-mail'),
+                    decoration: InputDecoration.collapsed(
+                      hintText: 'E-mail',
+                    ),
                   ),
                 ),
                 Container(
@@ -63,10 +72,12 @@ class MyApp extends StatelessWidget {
                       Radius.circular(10),
                     ),
                   ),
-                  padding: const EdgeInsets.only(left: 10),
+                  padding: const EdgeInsets.only(left: 10, top: 13, bottom: 13),
                   margin: const EdgeInsets.all(10),
                   child: const TextField(
-                    decoration: InputDecoration(hintText: 'Password'),
+                    decoration: InputDecoration.collapsed(
+                      hintText: 'Password',
+                    ),
                   ),
                 )
               ],

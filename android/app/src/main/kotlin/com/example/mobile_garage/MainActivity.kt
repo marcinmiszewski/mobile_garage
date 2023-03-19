@@ -1,4 +1,4 @@
-package com.example.mobile_garage
+package marcinmiszewski.mobile_garage
 
 import io.flutter.embedding.android.FlutterActivity
 
