@@ -2,13 +2,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({
     super.key,
   });
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  var errorMessage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +69,7 @@ class LoginPage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10, top: 13, bottom: 13),
                 margin: const EdgeInsets.all(10),
                 child: TextField(
-                  controller: emailController,
+                  controller: widget.emailController,
                   decoration: const InputDecoration.collapsed(
                     hintText: 'E-mail',
                   ),
@@ -78,7 +85,7 @@ class LoginPage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10, top: 13, bottom: 13),
                 margin: const EdgeInsets.all(10),
                 child: TextField(
-                  controller: passwordController,
+                  controller: widget.passwordController,
                   obscureText: true,
                   decoration: const InputDecoration.collapsed(
                     hintText: 'Password',
@@ -88,15 +95,27 @@ class LoginPage extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
+              Text(
+                errorMessage,
+                style: GoogleFonts.lobster(
+                  color: Colors.amber,
+                  fontSize: 15,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
               ElevatedButton(
                 onPressed: () async {
                   try {
                     await FirebaseAuth.instance.signInWithEmailAndPassword(
-                      email: emailController.text,
-                      password: passwordController.text,
+                      email: widget.emailController.text,
+                      password: widget.passwordController.text,
                     );
                   } catch (error) {
-                    print(error);
+                    setState(() {
+                      errorMessage = error.toString();
+                    });
                   }
                 },
                 child: const Text('Zaloguj się'),
