@@ -82,9 +82,9 @@ class CostsPageContent extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text('Litry'),
                         Text('Cena za litr'),
                         Text('Zapłacono')
@@ -99,8 +99,8 @@ class CostsPageContent extends StatelessWidget {
                           Text(document['total'].toString()),
                         ],
                       ),
-                      Column(
-                        children: const [Text('L'), Text('PLN'), Text('PLN')],
+                      const Column(
+                        children: [Text('L'), Text('PLN'), Text('PLN')],
                       ),
                     ]
                   ],
@@ -119,10 +119,71 @@ class AddCostPageContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Dodaj koszt',
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Image.asset(
+                    'images/garage.jpg',
+                  ),
+                  iconSize: 150,
+                ),
+                const Center(
+                  child: Text(
+                    'Tank',
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Image.asset(
+                    'images/garage.jpg',
+                  ),
+                  iconSize: 150,
+                ),
+                const Center(
+                  child: Text(
+                    'Tank',
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Image.asset(
+                    'images/garage.jpg',
+                  ),
+                  iconSize: 150,
+                ),
+                const Center(
+                  child: Text(
+                    'Tank',
+                  ),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Image.asset(
+                    'images/garage.jpg',
+                  ),
+                  iconSize: 150,
+                ),
+                const Center(
+                  child: Text(
+                    'Tank',
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
