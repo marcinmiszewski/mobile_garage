@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_garage/app/home/home_page.dart';
+import 'package:mobile_garage/app/home/add_cost/add_exploatation_cost/add_exploatation_cost_page_content.dart';
+import 'package:mobile_garage/app/home/add_cost/add_insurance_cost/add_insurance_cost_page_content.dart';
+import 'package:mobile_garage/app/home/add_cost/add_refueling_cost/add_refueling_cost_page_content.dart';
+import 'package:mobile_garage/app/home/add_cost/add_repair_cost/add_repair_cost_page_content.dart';
 
 class AddCostPageContent extends StatelessWidget {
   const AddCostPageContent({
