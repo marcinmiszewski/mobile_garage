@@ -128,7 +128,13 @@ class AddCostPageContent extends StatelessWidget {
             Column(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const AddRefuelingPageContent(),
+                      ),
+                    );
+                  },
                   icon: Image.asset(
                     'images/garage.jpg',
                   ),
@@ -136,11 +142,17 @@ class AddCostPageContent extends StatelessWidget {
                 ),
                 const Center(
                   child: Text(
-                    'Tank',
+                    'Tankowanie',
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const AddExploatationContent(),
+                      ),
+                    );
+                  },
                   icon: Image.asset(
                     'images/garage.jpg',
                   ),
@@ -148,7 +160,7 @@ class AddCostPageContent extends StatelessWidget {
                 ),
                 const Center(
                   child: Text(
-                    'Tank',
+                    'Eksplatacja',
                   ),
                 ),
               ],
@@ -156,7 +168,13 @@ class AddCostPageContent extends StatelessWidget {
             Column(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const AddRepairsPageContent(),
+                      ),
+                    );
+                  },
                   icon: Image.asset(
                     'images/garage.jpg',
                   ),
@@ -164,11 +182,17 @@ class AddCostPageContent extends StatelessWidget {
                 ),
                 const Center(
                   child: Text(
-                    'Tank',
+                    'Naprawy',
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => const AddInsurancePageContent(),
+                      ),
+                    );
+                  },
                   icon: Image.asset(
                     'images/garage.jpg',
                   ),
@@ -176,7 +200,7 @@ class AddCostPageContent extends StatelessWidget {
                 ),
                 const Center(
                   child: Text(
-                    'Tank',
+                    'Ubezpieczenie',
                   ),
                 ),
               ],
@@ -184,6 +208,86 @@ class AddCostPageContent extends StatelessWidget {
           ],
         ),
       ],
+    );
+  }
+}
+
+class AddRefuelingPageContent extends StatelessWidget {
+  const AddRefuelingPageContent({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Tankowanie'),
+      ),
+      body: const Center(
+        child: Text(
+          'Tankowanie',
+        ),
+      ),
+    );
+  }
+}
+
+class AddRepairsPageContent extends StatelessWidget {
+  const AddRepairsPageContent({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Naprawy'),
+      ),
+      body: const Center(
+        child: Text(
+          'Naprawy',
+        ),
+      ),
+    );
+  }
+}
+
+class AddExploatationContent extends StatelessWidget {
+  const AddExploatationContent({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Eksplatacja'),
+      ),
+      body: const Center(
+        child: Text(
+          'Eksplatacja',
+        ),
+      ),
+    );
+  }
+}
+
+class AddInsurancePageContent extends StatelessWidget {
+  const AddInsurancePageContent({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Ubezpieczenie'),
+      ),
+      body: const Center(
+        child: Text(
+          'Ubezpieczenie',
+        ),
+      ),
     );
   }
 }
