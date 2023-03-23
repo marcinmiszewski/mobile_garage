@@ -28,7 +28,7 @@ class AddCostPageContent extends StatelessWidget {
                     );
                   },
                   icon: Image.asset(
-                    'images/garage.jpg',
+                    'images/refueling.jpg',
                   ),
                   iconSize: 150,
                 ),
@@ -68,7 +68,7 @@ class AddCostPageContent extends StatelessWidget {
                     );
                   },
                   icon: Image.asset(
-                    'images/garage.jpg',
+                    'images/repairs.jpg',
                   ),
                   iconSize: 150,
                 ),
