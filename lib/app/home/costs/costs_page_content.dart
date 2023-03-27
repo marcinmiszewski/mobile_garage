@@ -25,30 +25,34 @@ class CostsPageContent extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(30),
-                child: Row(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Litry'),
-                        Text('Cena za litr'),
-                        Text('Zapłacono')
-                      ],
-                    ),
                     for (final document in documents) ...[
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(document['liters'].toString()),
-                          Text(document['price'].toString()),
-                          Text(document['total'].toString()),
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Litry'),
+                              Text('Cena za litr'),
+                              Text('Kwota tankowania'),
+                              Text('Przebieg'),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(document['liters'].toString()),
+                              Text(document['price'].toString()),
+                              Text(document['total'].toString()),
+                              Text(document['mileage'].toString()),
+                            ],
+                          ),
                         ],
                       ),
-                      const Column(
-                        children: [Text('L'), Text('PLN'), Text('PLN')],
-                      ),
-                    ]
+                    ],
                   ],
                 ),
               ),
