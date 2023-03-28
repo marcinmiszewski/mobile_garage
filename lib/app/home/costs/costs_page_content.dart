@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_garage/app/home/costs/cubit/costs_cubit.dart';
@@ -11,62 +10,60 @@ class CostsPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CostsCubit(),
+      create: (context) => CostsCubit()..start(),
       child: BlocBuilder<CostsCubit, CostsState>(
         builder: (context, state) {
-          return StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-              stream: FirebaseFirestore.instance
-                  .collection('refueling')
-                  .snapshots(),
-              builder: (context, snapshot) {
-                if (snapshot.hasError) {
-                  return const Center(child: Text('Coś poszło nie tak'));
-                }
+          if (state.errorMessage.isNotEmpty) {
+            return Center(
+              child: Text(
+                'Coś poszło nie tak:${state.errorMessage}',
+              ),
+            );
+          }
 
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: Text('Ładowanie'));
-                }
+          if (state.isLoading == true) {
+            return const Center(child: CircularProgressIndicator());
+          }
 
-                final documents = snapshot.data!.docs;
+          final documents = state.documents;
 
-                return ListView(
+          return ListView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(30),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(30),
-                      child: Column(
+                    for (final document in documents) ...[
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          for (final document in documents) ...[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text('Litry'),
-                                    Text('Cena za litr'),
-                                    Text('Kwota tankowania'),
-                                    Text('Przebieg'),
-                                  ],
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Text(document['liters'].toString()),
-                                    Text(document['price'].toString()),
-                                    Text(document['total'].toString()),
-                                    Text(document['mileage'].toString()),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ],
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Litry'),
+                              Text('Cena za litr'),
+                              Text('Kwota tankowania'),
+                              Text('Przebieg'),
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(document['liters'].toString()),
+                              Text(document['price'].toString()),
+                              Text(document['total'].toString()),
+                              Text(document['mileage'].toString()),
+                            ],
+                          ),
                         ],
                       ),
-                    ),
+                    ],
                   ],
-                );
-              });
+                ),
+              ),
+            ],
+          );
         },
       ),
     );

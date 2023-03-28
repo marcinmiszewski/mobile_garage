@@ -8,7 +8,7 @@ class CostsState {
 
   const CostsState({
     required this.documents,
-    required this.isLoading,
     required this.errorMessage,
+    required this.isLoading,
   });
 }
