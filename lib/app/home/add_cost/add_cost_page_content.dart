@@ -13,217 +13,241 @@ class AddCostPageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text('Dodaj koszt'), centerTitle: true),
-        body: Container(
-          height: 235,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0, top: 20, right: 1),
-                child: Container(
-                  width: 150,
-                  height: 200,
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: AspectRatio(
-                          aspectRatio: 4 / 3,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(30),
-                            child: Material(
-                              child: Ink.image(
-                                image: const NetworkImage(
-                                  'https://miro.medium.com/v2/resize:fit:720/0*TjYAG638b0mvLPXA',
-                                ),
-                                fit: BoxFit.cover,
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                        builder: (_) =>
-                                            const AddRefuelingPageContent(),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        'Tankowanie',
-                        style: GoogleFonts.tourney(
-                          textStyle: const TextStyle(
-                            letterSpacing: 3,
-                            fontSize: 15,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0, top: 20, right: 1),
-                child: Container(
-                  width: 150,
-                  height: 200,
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: AspectRatio(
-                          aspectRatio: 4 / 3,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(30),
-                            child: Material(
-                              child: Ink.image(
-                                image: const NetworkImage(
-                                  'https://cdn.pixabay.com/photo/2014/06/04/16/36/man-362150_960_720.jpg',
-                                ),
-                                fit: BoxFit.cover,
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                        builder: (_) =>
-                                            const AddRepairPageContent(),
-                                      ),
-                                    );
-                                  },
+        body: Column(
+          children: [
+            Container(
+              height: 235,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 20.0,
+                      top: 20,
+                      right: 10,
+                      bottom: 20,
+                    ),
+                    child: Container(
+                      width: 150,
+                      height: 200,
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: AspectRatio(
+                              aspectRatio: 4 / 3,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(30),
+                                child: Material(
+                                  child: Ink.image(
+                                    image: const NetworkImage(
+                                      'https://miro.medium.com/v2/resize:fit:720/0*TjYAG638b0mvLPXA',
+                                    ),
+                                    fit: BoxFit.cover,
+                                    child: InkWell(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (_) =>
+                                                const AddRefuelingPageContent(),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        'Naprawy',
-                        style: GoogleFonts.tourney(
-                          textStyle: const TextStyle(
-                            letterSpacing: 3,
-                            fontSize: 15,
-                            color: Colors.black,
+                          const SizedBox(
+                            height: 5,
                           ),
-                        ),
+                          Text(
+                            'Tankowanie',
+                            style: GoogleFonts.tourney(
+                              textStyle: const TextStyle(
+                                letterSpacing: 3,
+                                fontSize: 15,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0, top: 20, right: 1),
-                child: Container(
-                  width: 150,
-                  height: 200,
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: AspectRatio(
-                          aspectRatio: 4 / 3,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(30),
-                            child: Material(
-                              child: Ink.image(
-                                image: const NetworkImage(
-                                  'https://cdn.pixabay.com/photo/2017/08/22/22/24/oil-2670720_960_720.jpg',
-                                ),
-                                fit: BoxFit.cover,
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                        builder: (_) =>
-                                            const AddExploatationContent(),
-                                      ),
-                                    );
-                                  },
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 10.0,
+                      top: 20,
+                      right: 10,
+                      bottom: 20,
+                    ),
+                    child: Container(
+                      width: 150,
+                      height: 200,
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: AspectRatio(
+                              aspectRatio: 4 / 3,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(30),
+                                child: Material(
+                                  child: Ink.image(
+                                    image: const NetworkImage(
+                                      'https://cdn.pixabay.com/photo/2014/06/04/16/36/man-362150_960_720.jpg',
+                                    ),
+                                    fit: BoxFit.cover,
+                                    child: InkWell(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (_) =>
+                                                const AddRepairPageContent(),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        'Eksploatacja',
-                        style: GoogleFonts.tourney(
-                          textStyle: const TextStyle(
-                            letterSpacing: 3,
-                            fontSize: 15,
-                            color: Colors.black,
+                          const SizedBox(
+                            height: 5,
                           ),
-                        ),
+                          Text(
+                            'Naprawy',
+                            style: GoogleFonts.tourney(
+                              textStyle: const TextStyle(
+                                letterSpacing: 3,
+                                fontSize: 15,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0, top: 20, right: 1),
-                child: Container(
-                  width: 150,
-                  height: 200,
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: AspectRatio(
-                          aspectRatio: 4 / 3,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(30),
-                            child: Material(
-                              child: Ink.image(
-                                image: const NetworkImage(
-                                  'https://cdn.pixabay.com/photo/2015/02/03/23/41/paper-623167_960_720.jpg',
-                                ),
-                                fit: BoxFit.cover,
-                                child: InkWell(
-                                  onTap: () {
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                        builder: (_) =>
-                                            const AddInsurancePageContent(),
-                                      ),
-                                    );
-                                  },
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 10.0,
+                      top: 20,
+                      right: 10,
+                      bottom: 20,
+                    ),
+                    child: Container(
+                      width: 150,
+                      height: 200,
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: AspectRatio(
+                              aspectRatio: 4 / 3,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(30),
+                                child: Material(
+                                  child: Ink.image(
+                                    image: const NetworkImage(
+                                      'https://cdn.pixabay.com/photo/2017/08/22/22/24/oil-2670720_960_720.jpg',
+                                    ),
+                                    fit: BoxFit.cover,
+                                    child: InkWell(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (_) =>
+                                                const AddExploatationContent(),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        'Dokumenty',
-                        style: GoogleFonts.tourney(
-                          textStyle: const TextStyle(
-                            letterSpacing: 3,
-                            fontSize: 15,
-                            color: Colors.black,
+                          const SizedBox(
+                            height: 5,
                           ),
-                        ),
+                          Text(
+                            'Eksploatacja',
+                            style: GoogleFonts.tourney(
+                              textStyle: const TextStyle(
+                                letterSpacing: 3,
+                                fontSize: 15,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 10.0,
+                      top: 20,
+                      right: 20,
+                      bottom: 20,
+                    ),
+                    child: Container(
+                      width: 150,
+                      height: 200,
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          Expanded(
+                            child: AspectRatio(
+                              aspectRatio: 4 / 3,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(30),
+                                child: Material(
+                                  child: Ink.image(
+                                    image: const NetworkImage(
+                                      'https://cdn.pixabay.com/photo/2015/02/03/23/41/paper-623167_960_720.jpg',
+                                    ),
+                                    fit: BoxFit.cover,
+                                    child: InkWell(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                            builder: (_) =>
+                                                const AddInsurancePageContent(),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            'Dokumenty',
+                            style: GoogleFonts.tourney(
+                              textStyle: const TextStyle(
+                                letterSpacing: 3,
+                                fontSize: 15,
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
 }
