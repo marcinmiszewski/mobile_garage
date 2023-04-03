@@ -28,7 +28,9 @@ class _AddRefuelingPageContentState extends State<AddRefuelingPageContent> {
       body: Container(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/refueling.jpg'),
+            image: NetworkImage(
+              'https://miro.medium.com/v2/resize:fit:720/0*TjYAG638b0mvLPXA',
+            ),
             fit: BoxFit.cover,
           ),
         ),

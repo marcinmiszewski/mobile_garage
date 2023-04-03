@@ -93,7 +93,7 @@ class AddCostPageContent extends StatelessWidget {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (_) =>
-                                            const AddRepairsPageContent(),
+                                            const AddRepairPageContent(),
                                       ),
                                     );
                                   },
