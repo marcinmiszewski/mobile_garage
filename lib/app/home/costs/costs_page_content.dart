@@ -30,33 +30,75 @@ class CostsPageContent extends StatelessWidget {
           return ListView(
             children: [
               Padding(
-                padding: const EdgeInsets.all(30),
+                padding: const EdgeInsets.all(10),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     for (final document in documents) ...[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(12)),
+                          color: Colors.blueGrey,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.35),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: const Offset(8, 15),
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text('Litry'),
-                              Text('Cena za litr'),
-                              Text('Kwota tankowania'),
-                              Text('Przebieg'),
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text(document['liters'].toString()),
-                              Text(document['price'].toString()),
-                              Text(document['total'].toString()),
-                              Text(document['mileage'].toString()),
-                            ],
-                          ),
-                        ],
+                              // const CircleAvatar(
+                              //   backgroundImage: NetworkImage(
+                              //     'https://miro.medium.com/v2/resize:fit:720/0*TjYAG638b0mvLPXA',
+                              //   ),
+                              //   radius: 30,
+                              // ),
+                              // const SizedBox(width: 10),
+                              const Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Litry'),
+                                  Text('Cena za litr'),
+                                  Text('Kwota tankowania'),
+                                  Text('Przebieg'),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Text(document['liters'].toString()),
+                                          Text(document['price'].toString()),
+                                          Text(document['total'].toString()),
+                                          Text(document['mileage'].toString()),
+                                        ],
+                                      ),
+                                      const SizedBox(width: 10),
+                                      const Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Text('L'),
+                                          Text('PLN/L'),
+                                          Text('PLN'),
+                                          Text('KM'),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ]),
                       ),
                     ],
                   ],
