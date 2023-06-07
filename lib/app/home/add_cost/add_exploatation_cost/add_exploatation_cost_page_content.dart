@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AddExploatationContent extends StatelessWidget {
-  const AddExploatationContent({
+class AddExploatationPageContent extends StatelessWidget {
+  const AddExploatationPageContent({
     super.key,
   });
 
