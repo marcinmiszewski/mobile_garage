@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_garage/app/home/add_cost/add_cost_page_content.dart';
+import 'package:mobile_garage/app/home/add_cost/add_cost_page_content/add_cost_page_content.dart';
 import 'package:mobile_garage/app/home/costs/costs_page_content.dart';
 import 'package:mobile_garage/app/home/my_account/my_account_page_content.dart';
 
