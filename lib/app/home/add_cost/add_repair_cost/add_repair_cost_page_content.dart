@@ -11,10 +11,9 @@ class AddRepairPageContent extends StatefulWidget {
   State<AddRepairPageContent> createState() => _AddRepairPageContent();
 }
 
-var newLiters = '';
-var newMileage = '';
+var newWhat = '';
 var newPrice = '';
-var newTotal = '';
+var newNext = '';
 
 class _AddRepairPageContent extends State<AddRepairPageContent> {
   @override
@@ -55,7 +54,7 @@ class _AddRepairPageContent extends State<AddRepairPageContent> {
                     ),
                     onChanged: (newValue) {
                       setState(() {
-                        newLiters = newValue;
+                        newWhat = newValue;
                       });
                     },
                   ),
@@ -95,7 +94,7 @@ class _AddRepairPageContent extends State<AddRepairPageContent> {
                     ),
                     onChanged: (newValue) {
                       setState(() {
-                        newTotal = newValue;
+                        newNext = newValue;
                       });
                     },
                   ),
@@ -104,19 +103,18 @@ class _AddRepairPageContent extends State<AddRepairPageContent> {
                   height: 20,
                 ),
                 ElevatedButton(
-                    onPressed: newLiters.isEmpty ||
-                            newPrice.isEmpty ||
-                            newTotal.isEmpty
-                        ? null
-                        : () {
-                            FirebaseFirestore.instance
-                                .collection('refueling')
-                                .add({
-                              'liters': newLiters,
-                              'price': newPrice,
-                              'total': newTotal,
-                            });
-                          },
+                    onPressed:
+                        newWhat.isEmpty || newPrice.isEmpty || newNext.isEmpty
+                            ? null
+                            : () {
+                                FirebaseFirestore.instance
+                                    .collection('repairs')
+                                    .add({
+                                  'what': newWhat,
+                                  'price': newPrice,
+                                  'next': newNext,
+                                });
+                              },
                     child: const Text('Dodaj Naprawę'))
               ],
             ),
