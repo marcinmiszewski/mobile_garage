@@ -42,10 +42,9 @@ class AddCostPageContent extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     children: [
                       AddButton(
-                        item: const AddButtonItem(
-                            urlImage:
-                                'https://miro.medium.com/v2/resize:fit:720/0*TjYAG638b0mvLPXA',
-                            title: 'ddsa'),
+                        urlImage:
+                            'https://miro.medium.com/v2/resize:fit:720/0*TjYAG638b0mvLPXA',
+                        title: 'TANKOWANIE',
                         inkWell: InkWell(
                           onTap: () {
                             Navigator.of(context).push(
@@ -57,10 +56,9 @@ class AddCostPageContent extends StatelessWidget {
                         ),
                       ),
                       AddButton(
-                        item: const AddButtonItem(
-                            urlImage:
-                                'https://cdn.pixabay.com/photo/2014/06/04/16/36/man-362150_960_720.jpg',
-                            title: ''),
+                        urlImage:
+                            'https://cdn.pixabay.com/photo/2014/06/04/16/36/man-362150_960_720.jpg',
+                        title: 'NAPRAWY',
                         inkWell: InkWell(
                           onTap: () {
                             Navigator.of(context).push(
@@ -72,7 +70,9 @@ class AddCostPageContent extends StatelessWidget {
                         ),
                       ),
                       AddButton(
-                        item: const AddButtonItem(urlImage: '', title: ''),
+                        urlImage:
+                            'https://cdn.pixabay.com/photo/2017/08/22/22/24/oil-2670720_960_720.jpg',
+                        title: 'EKSPLOATACJA',
                         inkWell: InkWell(
                           onTap: () {
                             Navigator.of(context).push(
@@ -85,7 +85,9 @@ class AddCostPageContent extends StatelessWidget {
                         ),
                       ),
                       AddButton(
-                        item: const AddButtonItem(urlImage: '', title: ''),
+                        urlImage:
+                            'https://cdn.pixabay.com/photo/2015/02/03/23/41/paper-623167_960_720.jpg',
+                        title: 'DOKUMENTY',
                         inkWell: InkWell(
                           onTap: () {
                             Navigator.of(context).push(
@@ -201,47 +203,20 @@ class AddCostPageContent extends StatelessWidget {
 class AddButton extends StatefulWidget {
   const AddButton({
     required this.inkWell,
-    required this.item,
+    required this.title,
+    required this.urlImage,
     super.key,
   });
 
   final InkWell inkWell;
-  final AddButtonItem item;
+  final String urlImage;
+  final String title;
 
   @override
   State<AddButton> createState() => _AddButtonState();
 }
 
-class AddButtonItem {
-  final String urlImage;
-  final String title;
-
-  const AddButtonItem({
-    required this.urlImage,
-    required this.title,
-  });
-}
-
 class _AddButtonState extends State<AddButton> {
-  // List<AddButtonItem> items = [
-  //   const AddButtonItem(
-  //       urlImage:
-  //           'https://cdn.pixabay.com/photo/2014/06/04/16/36/man-362150_960_720.jpg',
-  //       title: 'Tankowanie'),
-  //   const AddButtonItem(
-  //       urlImage:
-  //           'https://miro.medium.com/v2/resize:fit:720/0*TjYAG638b0mvLPXA',
-  //       title: 'Naprawy'),
-  //   const AddButtonItem(
-  //       urlImage:
-  //           'https://cdn.pixabay.com/photo/2017/08/22/22/24/oil-2670720_960_720.jpg',
-  //       title: 'Naprawy'),
-  //   const AddButtonItem(
-  //       urlImage:
-  //           'https://cdn.pixabay.com/photo/2015/02/03/23/41/paper-623167_960_720.jpg',
-  //       title: 'Naprawy'),
-  // ];
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -275,7 +250,7 @@ class _AddButtonState extends State<AddButton> {
                     child: Material(
                       child: Ink.image(
                         image: NetworkImage(
-                          widget.item.urlImage,
+                          widget.urlImage,
                         ),
                         fit: BoxFit.cover,
                         child: (widget.inkWell),
@@ -288,8 +263,11 @@ class _AddButtonState extends State<AddButton> {
             const SizedBox(
               height: 5,
             ),
+            const SizedBox(
+              height: 15,
+            ),
             Text(
-              widget.item.title,
+              widget.title,
               style: GoogleFonts.tourney(
                 textStyle: const TextStyle(
                   letterSpacing: 3,
