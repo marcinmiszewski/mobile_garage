@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mobile_garage/app/home/costs/cubit/costs_cubit.dart';
+import 'package:mobile_garage/app/features/home/costs/cubit/costs_cubit.dart';
 
 class CostsPageContent extends StatelessWidget {
   const CostsPageContent({

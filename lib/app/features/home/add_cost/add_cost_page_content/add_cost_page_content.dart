@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mobile_garage/app/home/add_cost/add_exploatation_cost/add_exploatation_cost_page_content.dart';
-import 'package:mobile_garage/app/home/add_cost/add_insurance_cost/add_insurance_cost_page_content.dart';
-import 'package:mobile_garage/app/home/add_cost/add_refueling_cost/add_refueling_cost_page_content.dart';
-import 'package:mobile_garage/app/home/add_cost/add_repair_cost/add_repair_cost_page_content.dart';
+import 'package:mobile_garage/app/features/home/add_cost/add_exploatation_cost/add_exploatation_cost_page_content.dart';
+import 'package:mobile_garage/app/features/home/add_cost/add_insurance_cost/add_insurance_cost_page_content.dart';
+import 'package:mobile_garage/app/features/home/add_cost/add_refueling_cost/add_refueling_cost_page_content.dart';
+import 'package:mobile_garage/app/features/home/add_cost/add_repair_cost/add_repair_cost_page_content.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mobile_garage/app/home/add_cost/add_cost_page_content/cubit/add_cost_cubit.dart';
+import 'package:mobile_garage/app/features/home/add_cost/add_cost_page_content/cubit/add_cost_cubit.dart';
 
 class AddCostPageContent extends StatelessWidget {
   const AddCostPageContent({
